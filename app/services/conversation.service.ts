@@ -52,6 +52,10 @@ export async function getOrCreateConversation(
     .single();
 
   if (error) {
+    if (error.code === "23505") {
+      return getOrCreateConversation(sessionId, userId, firstMessage);
+    }
+
     throw new Error(`Failed to create conversation: ${error.message}`);
   }
 

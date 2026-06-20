@@ -110,7 +110,15 @@ export async function POST(request: Request) {
       role: "user",
     });
 
-    const products = await findRelevantProducts(parsed.data.message);
+    const conversationContext = history
+      .slice(-6)
+      .map((message) => message.content)
+      .join(" ");
+    const products = await findRelevantProducts(
+      parsed.data.message,
+      8,
+      conversationContext,
+    );
     let answer = CATALOG_NOT_FOUND_RESPONSE;
     let geminiMetadata: Record<string, unknown> = {};
 

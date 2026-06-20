@@ -34,6 +34,8 @@ const LOWEST_PRICE_PATTERN =
   /\b(paling murah|termurah|harga (paling )?rendah)\b/;
 const HIGHEST_STOCK_PATTERN =
   /\b(stok (paling )?(banyak|tinggi)|stok terbanyak)\b/;
+const FOLLOW_UP_PATTERN =
+  /\b(berapa|harganya|stoknya|itu|tadi|tersebut|tersedia|warnanya|ukurannya)\b/;
 
 function normalize(value: string) {
   return value
@@ -44,7 +46,11 @@ function normalize(value: string) {
     .trim();
 }
 
-export async function findRelevantProducts(message: string, limit = 8) {
+export async function findRelevantProducts(
+  message: string,
+  limit = 8,
+  conversationContext = "",
+) {
   const supabase = createAdminSupabaseClient();
   const { data, error } = await supabase
     .from("products")
@@ -58,6 +64,10 @@ export async function findRelevantProducts(message: string, limit = 8) {
 
   const products = (data ?? []) as ChatProduct[];
   const normalizedMessage = normalize(message);
+  const retrievalMessage =
+    conversationContext && FOLLOW_UP_PATTERN.test(normalizedMessage)
+      ? normalize(`${conversationContext} ${message}`)
+      : normalizedMessage;
 
   if (HIGHEST_PRICE_PATTERN.test(normalizedMessage)) {
     return products
@@ -75,7 +85,7 @@ export async function findRelevantProducts(message: string, limit = 8) {
     return products.toSorted((a, b) => b.stock - a.stock).slice(0, limit);
   }
 
-  const terms = normalizedMessage
+  const terms = retrievalMessage
     .split(" ")
     .filter((term) => term.length > 1 && !STOP_WORDS.has(term));
   const isCatalogRequest = CATALOG_TERMS.some((term) =>
