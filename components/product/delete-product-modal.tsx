@@ -4,6 +4,7 @@ import { useTransition } from "react";
 
 import { ProductRow } from "@/types";
 import { deleteProduct } from "@/app/admin/products/actions";
+import { Button } from "../ui/button";
 
 interface Props {
   product: ProductRow | null;
@@ -39,13 +40,25 @@ export function DeleteProductModal({ product, open, onClose }: Props) {
         </p>
 
         <div className="mt-6 flex justify-end gap-2">
-          <button onClick={onClose} disabled={isPending}>
+          <Button
+            className="cursor-pointer"
+            type="button"
+            size="sm"
+            variant="outline"
+            onClick={onClose}
+          >
             Batal
-          </button>
+          </Button>
 
-          <button onClick={handleDelete} disabled={isPending}>
+          <Button
+            className="cursor-pointer"
+            size="sm"
+            variant="destructive"
+            onClick={handleDelete}
+            disabled={isPending}
+          >
             {isPending ? "Menghapus..." : "Hapus"}
-          </button>
+          </Button>
         </div>
       </div>
     </div>
