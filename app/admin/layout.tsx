@@ -27,7 +27,7 @@ export default async function AdminLayout({
       <header className="border-b bg-background">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
           <div>
-            <p className="text-sm text-muted-foreground">Signed in as</p>
+            <p className="text-sm text-muted-foreground">Login sebagai</p>
             <p className="font-medium">{user.email}</p>
           </div>
 

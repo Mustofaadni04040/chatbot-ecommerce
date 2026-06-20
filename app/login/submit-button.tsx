@@ -9,7 +9,7 @@ export function LoginSubmitButton() {
 
   return (
     <Button className="w-full" disabled={pending} type="submit">
-      {pending ? "Signing in..." : "Sign in"}
+      {pending ? "Masuk..." : "Masuk"}
     </Button>
   );
 }

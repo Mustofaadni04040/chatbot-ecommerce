@@ -9,7 +9,7 @@ export function DeleteProductButton() {
 
   return (
     <Button disabled={pending} size="sm" type="submit" variant="destructive">
-      {pending ? "Deleting..." : "Delete"}
+      {pending ? "Menghapus..." : "Hapus"}
     </Button>
   );
 }

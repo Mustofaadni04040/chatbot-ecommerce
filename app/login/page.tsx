@@ -32,10 +32,10 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
             Admin Dashboard
           </p>
           <h1 className="text-2xl font-semibold tracking-tight">
-            Sign in to continue
+            Masuk sebagai admin
           </h1>
           <p className="text-sm text-muted-foreground">
-            Use your Supabase Auth admin account.
+            Masuk untuk melanjutkan ke area admin
           </p>
         </div>
 
@@ -80,7 +80,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
         </form>
 
         <Button asChild className="mt-3 w-full" variant="ghost">
-          <Link href="/">Back to storefront</Link>
+          <Link href="/">Kembali ke toko</Link>
         </Button>
       </section>
     </main>

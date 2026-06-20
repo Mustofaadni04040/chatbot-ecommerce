@@ -12,12 +12,16 @@ interface EditProductPageProps {
   }>;
 }
 
-export default async function EditProductPage({ params }: EditProductPageProps) {
+export default async function EditProductPage({
+  params,
+}: EditProductPageProps) {
   const { id } = await params;
   const supabase = await createServerSupabaseClient();
   const { data, error } = await supabase
     .from("products")
-    .select("id,name,description,price,category,stock,image_url,created_at,updated_at")
+    .select(
+      "id,name,description,price,category,stock,image_url,created_at,updated_at",
+    )
     .eq("id", id)
     .single();
 
@@ -31,9 +35,9 @@ export default async function EditProductPage({ params }: EditProductPageProps) 
     <section className="space-y-6">
       <div>
         <p className="text-sm font-medium text-muted-foreground">
-          Product Management
+          Manajemen Produk
         </p>
-        <h1 className="text-2xl font-semibold tracking-tight">Edit product</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Edit Produk</h1>
       </div>
 
       <div className="rounded-2xl border bg-background p-6 shadow-sm">
