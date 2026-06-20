@@ -11,9 +11,14 @@ export default function AdminPage() {
       <p className="mt-2 text-sm text-muted-foreground">
         Area admin untuk mengelola produk dan konten toko Anda.
       </p>
-      <Button asChild className="mt-5">
-        <Link href="/admin/products">Manage products</Link>
-      </Button>
+      <div className="mt-5 flex flex-wrap gap-3">
+        <Button asChild>
+          <Link href="/admin/products">Manage products</Link>
+        </Button>
+        <Button asChild variant="outline">
+          <Link href="/admin/conversations">Rekap percakapan</Link>
+        </Button>
+      </div>
     </section>
   );
 }
