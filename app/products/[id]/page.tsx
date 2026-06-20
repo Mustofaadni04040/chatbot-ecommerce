@@ -3,6 +3,7 @@ import { ArrowLeft, PackageCheck, PackageX } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { UserAccountActions } from "@/components/auth/user-account-actions";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import type { ProductRow } from "@/types/product";
 
@@ -51,13 +52,16 @@ export default async function ProductDetailPage({
   return (
     <main className="min-h-screen bg-linear-to-b from-[#f2fff8] via-white to-[#fff7f1] text-[#17211b]">
       <div className="mx-auto max-w-7xl px-5 py-8 sm:px-8 sm:py-12 lg:px-12">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-sm font-medium text-[#526057] transition hover:text-[#173f35] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#173f35]"
-        >
-          <ArrowLeft className="size-4" aria-hidden="true" />
-          Kembali ke katalog
-        </Link>
+        <div className="flex items-center justify-between gap-4">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#526057] transition hover:text-[#173f35] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#173f35]"
+          >
+            <ArrowLeft className="size-4" aria-hidden="true" />
+            Kembali ke katalog
+          </Link>
+          <UserAccountActions />
+        </div>
 
         <article className="mt-7 overflow-hidden rounded-[2rem] border border-[#17211b]/10 bg-white shadow-[0_20px_60px_rgba(35,48,40,0.08)] lg:grid lg:grid-cols-[1.08fr_0.92fr]">
           <div className="aspect-[4/3] overflow-hidden bg-[#e8e9e1] sm:aspect-[16/11] lg:aspect-auto lg:min-h-[620px]">

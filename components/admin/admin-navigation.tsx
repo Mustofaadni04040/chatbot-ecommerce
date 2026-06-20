@@ -28,17 +28,17 @@ const navigationItems = [
   },
 ];
 
-export function AdminNavigation({ mobile = false }: { mobile?: boolean }) {
+export function AdminNavigation({
+  onNavigate,
+}: {
+  onNavigate?: () => void;
+}) {
   const pathname = usePathname();
 
   return (
     <nav
       aria-label="Navigasi admin"
-      className={cn(
-        mobile
-          ? "flex gap-2 overflow-x-auto px-4 pb-3"
-          : "flex flex-col gap-1.5 px-3",
-      )}
+      className="flex flex-col gap-1.5 px-3"
     >
       {navigationItems.map((item) => {
         const isActive =
@@ -51,10 +51,11 @@ export function AdminNavigation({ mobile = false }: { mobile?: boolean }) {
           <Link
             key={item.href}
             href={item.href}
+            onClick={onNavigate}
             aria-current={isActive ? "page" : undefined}
             className={cn(
               "flex items-center gap-3 rounded-xl text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
-              mobile ? "shrink-0 px-3 py-2" : "px-3 py-2.5",
+              "px-3 py-2.5",
               isActive
                 ? "bg-primary text-primary-foreground shadow-sm"
                 : "text-muted-foreground hover:bg-muted hover:text-foreground",

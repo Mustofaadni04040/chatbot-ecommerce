@@ -20,8 +20,8 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (user?.app_metadata?.role === "admin") {
-    redirect("/admin");
+  if (user) {
+    redirect(user.app_metadata?.role === "admin" ? "/admin" : "/");
   }
 
   return (
@@ -29,13 +29,13 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
       <section className="w-full max-w-md rounded-2xl border bg-background p-6 shadow-sm">
         <div className="mb-6 space-y-2">
           <p className="text-sm font-medium text-muted-foreground">
-            Admin Dashboard
+            AGIA Store
           </p>
           <h1 className="text-2xl font-semibold tracking-tight">
-            Masuk sebagai admin
+            Masuk ke akun
           </h1>
           <p className="text-sm text-muted-foreground">
-            Masuk untuk melanjutkan ke area admin
+            Admin akan diarahkan ke dashboard, sedangkan pengguna ke katalog.
           </p>
         </div>
 

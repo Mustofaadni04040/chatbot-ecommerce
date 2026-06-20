@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PackageSearch } from "lucide-react";
 
+import { UserAccountActions } from "@/components/auth/user-account-actions";
 import { ProductFilters } from "@/components/product/product-filters";
 import { ProductGrid } from "@/components/product/product-grid";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
@@ -86,6 +87,9 @@ export default async function Home({ searchParams }: HomeProps) {
   return (
     <main className="min-h-screen bg-linear-to-b from-[#f2fff8] via-white to-[#fff7f1] text-[#17211b]">
       <section className="mx-auto max-w-7xl px-5 py-10 sm:px-8 sm:py-14 lg:px-12">
+        <div className="mb-6 flex justify-end">
+          <UserAccountActions />
+        </div>
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#a16620]">

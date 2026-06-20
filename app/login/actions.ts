@@ -22,12 +22,7 @@ export async function loginAdmin(formData: FormData) {
     redirect("/login?error=Invalid%20email%20or%20password");
   }
 
-  if (data.user.app_metadata?.role !== "admin") {
-    await supabase.auth.signOut();
-    redirect("/login?error=Admin%20access%20required");
-  }
-
-  redirect("/admin");
+  redirect(data.user.app_metadata?.role === "admin" ? "/admin" : "/");
 }
 
 export async function logoutAdmin() {
@@ -35,4 +30,11 @@ export async function logoutAdmin() {
   await supabase.auth.signOut();
 
   redirect("/login");
+}
+
+export async function logoutUser() {
+  const supabase = await createServerSupabaseClient();
+  await supabase.auth.signOut();
+
+  redirect("/");
 }

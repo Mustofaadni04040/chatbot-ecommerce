@@ -24,8 +24,8 @@ export async function middleware(request: NextRequest) {
 
   if (user.app_metadata?.role !== "admin") {
     const redirectUrl = request.nextUrl.clone();
-    redirectUrl.pathname = "/login";
-    redirectUrl.searchParams.set("error", "Admin access required");
+    redirectUrl.pathname = "/";
+    redirectUrl.search = "";
 
     return NextResponse.redirect(redirectUrl);
   }

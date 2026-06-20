@@ -3,6 +3,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 
 import { logoutAdmin } from "@/app/login/actions";
+import { AdminMobileDrawer } from "@/components/admin/admin-mobile-drawer";
 import { AdminNavigation } from "@/components/admin/admin-navigation";
 import { Button } from "@/components/ui/button";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
@@ -22,7 +23,7 @@ export default async function AdminLayout({
   }
 
   if (user.app_metadata?.role !== "admin") {
-    redirect("/login?error=Admin%20access%20required");
+    redirect("/");
   }
 
   return (
@@ -71,7 +72,8 @@ export default async function AdminLayout({
 
       <div className="min-w-0 flex-1">
         <header className="border-b bg-background md:hidden">
-          <div className="flex h-16 items-center justify-between px-4">
+          <div className="flex h-16 items-center gap-3 px-4">
+            <AdminMobileDrawer email={user.email ?? "Administrator"} />
             <Link href="/admin" className="flex items-center gap-2.5">
               <span className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
                 <Store className="size-4" aria-hidden="true" />
@@ -83,18 +85,7 @@ export default async function AdminLayout({
                 </p>
               </div>
             </Link>
-            <form action={logoutAdmin}>
-              <Button
-                type="submit"
-                size="icon"
-                variant="outline"
-                aria-label="Logout"
-              >
-                <LogOut aria-hidden="true" />
-              </Button>
-            </form>
           </div>
-          <AdminNavigation mobile />
         </header>
 
         <main className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
