@@ -4,10 +4,14 @@ import type { ProductRow } from "@/types/product";
 import { ProductCard } from "./product-card";
 
 interface PublicProductGridProps {
+  hasFilters?: boolean;
   products: ProductRow[];
 }
 
-export function ProductGrid({ products }: PublicProductGridProps) {
+export function ProductGrid({
+  hasFilters = false,
+  products,
+}: PublicProductGridProps) {
   if (products.length === 0) {
     return (
       <div className="rounded-3xl border border-dashed border-[#173f35]/25 bg-white/60 px-6 py-16 text-center">
@@ -15,9 +19,13 @@ export function ProductGrid({ products }: PublicProductGridProps) {
           className="mx-auto size-10 text-[#718077]"
           aria-hidden="true"
         />
-        <h3 className="mt-4 text-lg font-semibold">Belum ada produk</h3>
+        <h2 className="mt-4 text-lg font-semibold">
+          {hasFilters ? "Produk tidak ditemukan" : "Belum ada produk"}
+        </h2>
         <p className="mt-2 text-sm text-[#677168]">
-          Produk baru akan tampil di sini setelah tersedia.
+          {hasFilters
+            ? "Coba gunakan kata kunci atau kategori yang berbeda."
+            : "Produk baru akan tampil di sini setelah tersedia."}
         </p>
       </div>
     );

@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { ArrowLeft, ImageIcon, PackageCheck, PackageX } from "lucide-react";
+import { ArrowLeft, PackageCheck, PackageX } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -61,18 +61,15 @@ export default async function ProductDetailPage({
 
         <article className="mt-7 overflow-hidden rounded-[2rem] border border-[#17211b]/10 bg-white shadow-[0_20px_60px_rgba(35,48,40,0.08)] lg:grid lg:grid-cols-[1.08fr_0.92fr]">
           <div className="aspect-[4/3] overflow-hidden bg-[#e8e9e1] sm:aspect-[16/11] lg:aspect-auto lg:min-h-[620px]">
-            {product.image_url ? (
-              <img
-                src={product.image_url}
-                alt={product.name}
-                className="size-full object-cover"
-              />
-            ) : (
-              <div className="flex size-full min-h-72 items-center justify-center text-[#8c978f]">
-                <ImageIcon className="size-16" aria-hidden="true" />
-                <span className="sr-only">Gambar produk tidak tersedia</span>
-              </div>
-            )}
+            <img
+              src={
+                product.image_url
+                  ? product.image_url
+                  : "/product-placeholder.jpg"
+              }
+              alt={product.name}
+              className="size-full min-h-72 object-cover"
+            />
           </div>
 
           <div className="flex flex-col p-6 sm:p-10 lg:p-12">

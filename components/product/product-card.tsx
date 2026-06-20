@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { ImageIcon } from "lucide-react";
 import Link from "next/link";
 
 import type { ProductRow } from "@/types/product";
@@ -16,6 +15,7 @@ const currencyFormatter = new Intl.NumberFormat("id-ID", {
 
 export function ProductCard({ product }: PublicProductCardProps) {
   const inStock = product.stock > 0;
+  console.log(product.image_url);
 
   return (
     <Link
@@ -24,19 +24,14 @@ export function ProductCard({ product }: PublicProductCardProps) {
     >
       <article className="flex h-full flex-col">
         <div className="relative aspect-[4/3] overflow-hidden bg-[#e8e9e1]">
-          {product.image_url ? (
-            <img
-              src={product.image_url}
-              alt={product.name}
-              className="size-full object-cover transition duration-500 group-hover:scale-[1.04]"
-              loading="lazy"
-            />
-          ) : (
-            <div className="flex size-full items-center justify-center text-[#8c978f]">
-              <ImageIcon className="size-10" aria-hidden="true" />
-              <span className="sr-only">Gambar produk tidak tersedia</span>
-            </div>
-          )}
+          <img
+            src={
+              product.image_url ? product.image_url : "/product-placeholder.jpg"
+            }
+            alt={product.name}
+            className="size-full object-cover transition duration-500 group-hover:scale-[1.04]"
+            loading="lazy"
+          />
           <span className="absolute left-4 top-4 rounded-full bg-[#f8f2e7]/95 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#315145] shadow-sm backdrop-blur">
             {product.category}
           </span>
