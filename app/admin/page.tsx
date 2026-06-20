@@ -1,3 +1,7 @@
+import Link from "next/link";
+
+import { Button } from "@/components/ui/button";
+
 export default function AdminPage() {
   return (
     <section className="rounded-2xl border bg-background p-6 shadow-sm">
@@ -11,6 +15,9 @@ export default function AdminPage() {
         Authentication is active. Product and conversation management can be
         added here next.
       </p>
+      <Button asChild className="mt-5">
+        <Link href="/admin/products">Manage products</Link>
+      </Button>
     </section>
   );
 }
