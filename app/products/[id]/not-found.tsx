@@ -3,16 +3,10 @@ import Link from "next/link";
 
 export default function ProductNotFound() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#f7f4ed] px-5 text-[#17211b]">
-      <div className="w-full max-w-lg rounded-[2rem] border border-[#17211b]/10 bg-white px-6 py-14 text-center shadow-[0_20px_60px_rgba(35,48,40,0.08)] sm:px-12">
-        <div className="mx-auto flex size-16 items-center justify-center rounded-full bg-[#eaf1e9] text-[#315a47]">
-          <PackageX className="size-8" aria-hidden="true" />
-        </div>
-        <p className="mt-6 text-xs font-semibold uppercase tracking-[0.22em] text-[#a16620]">
-          Produk tidak ditemukan
-        </p>
+    <main className="flex min-h-screen items-center justify-center bg-linear-to-b from-[#f2fff8] via-white to-[#fff7f1] px-5 text-[#17211b]">
+      <div className="w-full max-w-lg bg-white px-6 py-14 text-center sm:px-12">
         <h1 className="mt-3 text-3xl font-semibold tracking-[-0.04em]">
-          Produk ini tidak tersedia
+          Produk tidak ditemukan
         </h1>
         <p className="mt-4 text-sm leading-7 text-[#677168]">
           Produk mungkin sudah dihapus atau alamat yang Anda buka tidak tepat.

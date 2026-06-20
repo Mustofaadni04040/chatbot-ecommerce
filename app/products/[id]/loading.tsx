@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <main className="min-h-screen bg-[#f7f4ed]">
+    <main className="min-h-screen bg-linear-to-b from-[#f2fff8] via-white to-[#fff7f1]">
       <div className="mx-auto max-w-7xl px-5 py-8 sm:px-8 sm:py-12 lg:px-12">
         <div className="h-5 w-36 animate-pulse rounded-full bg-[#d8d9d1]" />
         <div className="mt-7 overflow-hidden rounded-[2rem] border border-[#17211b]/10 bg-white lg:grid lg:grid-cols-[1.08fr_0.92fr]">

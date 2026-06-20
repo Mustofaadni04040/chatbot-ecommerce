@@ -2,7 +2,7 @@ import { ProductSkeleton } from "@/components/product/product-skeleton";
 
 export default function Loading() {
   return (
-    <main className="min-h-screen bg-[#f7f4ed]">
+    <main className="min-h-screen bg-linear-to-b from-[#f2fff8] via-white to-[#fff7f1]">
       <section className="mx-auto max-w-7xl px-5 py-10 sm:px-8 sm:py-14 lg:px-12">
         <div className="mb-8 space-y-3">
           <div className="h-3 w-20 animate-pulse rounded-full bg-[#d8d9d1]" />

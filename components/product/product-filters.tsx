@@ -18,7 +18,7 @@ export function ProductFilters({
     <form
       action="/"
       method="get"
-      className="mb-8 grid gap-3 rounded-3xl border border-[#173f35]/10 bg-white/80 p-4 sm:grid-cols-[minmax(0,1fr)_minmax(12rem,0.35fr)_auto] sm:p-5"
+      className="mb-8 grid gap-3 rounded-3xl border border-[#4e9f8b]/10 bg-white/80 p-4 sm:grid-cols-[minmax(0,1fr)_minmax(12rem,0.35fr)_auto] sm:p-5"
       role="search"
     >
       <div>
@@ -36,7 +36,7 @@ export function ProductFilters({
             type="search"
             defaultValue={query}
             placeholder="Cari nama atau deskripsi produk..."
-            className="h-12 w-full rounded-2xl border border-[#173f35]/15 bg-white pl-11 pr-4 text-sm outline-none transition placeholder:text-[#8c978f] focus:border-[#173f35] focus:ring-3 focus:ring-[#173f35]/10"
+            className="h-12 w-full rounded-2xl border border-[#4e9f8b]/15 bg-white pl-11 pr-4 text-sm outline-none transition placeholder:text-[#8c978f] focus:border-[#4e9f8b] focus:ring-3 focus:ring-[#4e9f8b]/10"
           />
         </div>
       </div>
@@ -54,7 +54,7 @@ export function ProductFilters({
             id="product-category"
             name="category"
             defaultValue={selectedCategory}
-            className="h-12 w-full appearance-none rounded-2xl border border-[#173f35]/15 bg-white pl-11 pr-9 text-sm outline-none transition focus:border-[#173f35] focus:ring-3 focus:ring-[#173f35]/10"
+            className="h-12 w-full appearance-none rounded-2xl border border-[#4e9f8b]/15 bg-white pl-11 pr-9 text-sm outline-none transition focus:border-[#4e9f8b] focus:ring-3 focus:ring-[#4e9f8b]/10"
           >
             <option value="">Semua kategori</option>
             {categories.map((category) => (
@@ -69,7 +69,7 @@ export function ProductFilters({
       <div className="flex gap-2">
         <button
           type="submit"
-          className="h-12 flex-1 rounded-2xl cursor-pointer bg-[#173f35] px-6 text-sm font-semibold text-white transition hover:bg-[#225346] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f35] sm:flex-none"
+          className="h-12 flex-1 rounded-2xl cursor-pointer bg-[#4e9f8b] px-6 text-sm font-semibold text-white transition hover:bg-[#4a9682] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4e9f8b] sm:flex-none"
         >
           Terapkan
         </button>
@@ -78,7 +78,7 @@ export function ProductFilters({
             href="/"
             aria-label="Hapus pencarian dan filter"
             title="Hapus filter"
-            className="flex size-12 items-center justify-center rounded-2xl border border-[#173f35]/15 bg-white text-[#526057] transition hover:border-[#173f35]/35 hover:text-[#173f35] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f35]"
+            className="flex size-12 items-center justify-center rounded-2xl border border-[#4e9f8b]/15 bg-white text-[#526057] transition hover:border-[#4e9f8b]/35 hover:text-[#4e9f8b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4e9f8b]"
           >
             <X className="size-4" aria-hidden="true" />
           </Link>

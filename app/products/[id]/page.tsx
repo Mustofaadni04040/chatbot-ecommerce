@@ -49,7 +49,7 @@ export default async function ProductDetailPage({
   const inStock = product.stock > 0;
 
   return (
-    <main className="min-h-screen bg-[#f7f4ed] text-[#17211b]">
+    <main className="min-h-screen bg-linear-to-b from-[#f2fff8] via-white to-[#fff7f1] text-[#17211b]">
       <div className="mx-auto max-w-7xl px-5 py-8 sm:px-8 sm:py-12 lg:px-12">
         <Link
           href="/"
